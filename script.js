@@ -18,12 +18,14 @@ UserCpfVerify.prototype.returnResult = function () {
         count++;
     }
 
-    let someArray = this.someArrayFunction(parseInt(arrayResults));
+    let someArray = someArrayFunction(parseInt(arrayResults));
 
     let calResult = 11 - (someArray % 11);
     if (calResult > 9) {
         calResult = 0;
     };
+
+    console.log(calResult);
 
     let teste2 = teste22(calResult);
 
@@ -39,15 +41,28 @@ UserCpfVerify.prototype.returnResult = function () {
 
         };
 
-        let someArray = this.someArrayFunction(parseInt(arrayResults));
+        let someArray = someArrayFunction(parseInt(arrayResults));
         let calResult = 11 - (someArray % 11);
         if (calResult > 9) {
 
             calResult = 0;
 
         };
+        console.log(calResult);
+
 
         return calResult;
+    }
+
+    function someArrayFunction(arrayS) {
+        let resultSoma = 0;
+        for (let i = 0; i < arrayS.length; i++) {
+
+            resultSoma = resultSoma + arrayS[i];
+
+        }
+
+        return resultSoma;
     }
 
 };
@@ -60,17 +75,6 @@ UserCpfVerify.prototype.convertToArray = function (wordToArray) {
 
     }
     return arrayWord;
-};
-
-UserCpfVerify.prototype.someArrayFunction = function (arrayS) {
-    let resultSoma = 0;
-    for (let i = 0; i < arrayS.length; i++) {
-
-        resultSoma = resultSoma + arrayS[i];
-
-    }
-
-    return resultSoma;
 };
 
 const userOne = new UserCpfVerify('479.607.870-34');
